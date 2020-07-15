@@ -13,8 +13,7 @@ async function getWidget() {
   let widgets = await miro.board.selection.get()
 
   // Get first widget from selected widgets
-  if(widgets != null)
-    let text = widgets[0].text
+  let text = widgets[0].text
 
   // Check that widget has text field
   if (typeof text === 'string') {
