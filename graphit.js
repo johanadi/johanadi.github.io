@@ -17,8 +17,6 @@ async function getWidget() {
 
   // Check that widget has text field
   if (typeof text === 'string') {
-    var numbers;
-
     if(text.includes('<p>')) {
       text.replace("<p>", "")
       text.replace("</p>", "")
@@ -26,7 +24,7 @@ async function getWidget() {
 
       // numbers[0] will store current location,
       // numbers[1] will store where we want to get to
-      numbers = Number(text.split("/",2))
+      let numbers = Number(text.split("/",2))
     }
     // hide tip and show text in sidebar
     tipElement.style.opacity = '0'
