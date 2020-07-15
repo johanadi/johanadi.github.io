@@ -8,18 +8,20 @@ miro.onReady(() => {
         svgIcon: icon,
         onClick: async () => {
 
+
+
           // Show modal and wait for user choice
           let needToClear = confirm('Do you want delete all content?')
 
           if (needToClear) {
             // Get all board objects
-            let objects = await miro.board.widgets.get()
+            let allStickers = await miro.board.widgets.get({type: 'sticker'})
 
             // Delete all board objects
-            await miro.board.widgets.deleteById(objects.map(object => object.id))
+            await miro.board.widgets.deleteById(objects.map(allStickers => object.id))
 
             // Display success
-            miro.showNotification('Content has been deleted')
+            miro.showNotification('Stickers have been deleted')
           }
         }
       }
