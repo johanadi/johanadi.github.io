@@ -13,10 +13,14 @@ async function getSize() {
 	let widgets = await miro.board.selection.get()
 	let text = ""
 
-	if(axisS.value == "x") {
-		text = widgets[0].bounds.width
-	} else {
-		text = widgets[0].bounds.height
+	for(const v of axisS) {
+		if(v.checked) {
+			if(v.value == "x") {
+				text = widgets[0].bounds.width
+			} else {
+				text = widgets[0].bounds.height
+			}
+		}
 	}
 
 	widgetSizeElement.value = text
