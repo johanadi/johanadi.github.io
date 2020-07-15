@@ -4,7 +4,6 @@ miro.onReady(() => {
   getSize()
 })
 
-let axisS = document.getElementById('axis')
 const widgetSizeElement = document.getElementById('widget-size')
 
 async function getSize() {
@@ -13,15 +12,17 @@ async function getSize() {
 	let widgets = await miro.board.selection.get()
 	let text = ""
 
-	for(const v of axisS) {
-		if(v.checked) {
-			if(v.value == "x") {
+	let axisS = document.getElementById('axis')
+
+	axisS.forEach((axis) => {
+		if(axis.checked) {
+			if(axis.value === "x") {
 				text = widgets[0].bounds.width
 			} else {
 				text = widgets[0].bounds.height
 			}
 		}
-	}
+	})
 
 	widgetSizeElement.value = text
 }
