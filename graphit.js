@@ -17,7 +17,11 @@ async function getWidget() {
 
   // Check that widget has text field
   if (typeof text === 'string') {
-
+    if(text.includes('<p>')) {
+      text.replace("<p>", "")
+      text.replace("</p>", "")
+      text.trim()
+    }
     // hide tip and show text in sidebar
     tipElement.style.opacity = '0'
     widgetTextElement.value = text
