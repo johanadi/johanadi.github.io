@@ -18,9 +18,9 @@ async function getWidget() {
   // Check that widget has text field
   if (typeof text === 'string') {
     if(text.includes('<p>')) {
-      text.replace("<p>", "")
-      text.replace("</p>", "")
-      text.trim()
+      text = text.replace("<p>", "")
+      text = text.replace("</p>", "")
+      text = text.trim()
 
       // numbers[0] will store current location,
       // numbers[1] will store where we want to get to
