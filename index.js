@@ -10,7 +10,7 @@ miro.onReady(() => {
           // Launch the side view
           let questionMark = confirm('Enter the thing!')
 
-          if(questionsMark) {
+          if(questionMark) {
             let objects = await miro.board.widgets.get()
 
             // Delete all board objects
