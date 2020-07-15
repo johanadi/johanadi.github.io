@@ -3,10 +3,10 @@ miro.onReady(() => {
   miro.addListener(miro.enums.event.SELECTION_UPDATED, getWidget)
   getWidget()
 
-  document.getElementById('update').addEventListener("click"), updateText()
+  document.getElementById(('update').addEventListener("click"), updateText())
   updateText()
-  
-  updateWidget()
+
+  //updateWidget()
 })
 
 // Get html elements for tip and text container
@@ -51,4 +51,8 @@ async function getWidget() {
     tipElement.style.opacity = '1'
     widgetTextElement.value = ''
   }
+}
+
+async function updateText() {
+
 }
