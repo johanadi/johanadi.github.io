@@ -8,7 +8,7 @@ miro.onReady(() => {
         onClick: async () => {
 
           // Launch the side view
-          miro.board.ui.openLeftSidebar('sidebar.html')
+          
 
           // Show success message
           miro.showNotification('Clicked!')
