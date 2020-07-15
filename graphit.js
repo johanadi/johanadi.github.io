@@ -24,7 +24,7 @@ async function getWidget() {
 
       
     }
-    widgets[0].text = text
+    widgets[0].text = text.concat(" added this on")
     // numbers[0] will store current location,
     // numbers[1] will store where we want to get to
     // numbers[2] will store the max width or height
