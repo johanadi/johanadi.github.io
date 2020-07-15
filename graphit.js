@@ -3,7 +3,9 @@ miro.onReady(() => {
   miro.addListener(miro.enums.event.SELECTION_UPDATED, getWidget)
   getWidget()
 
-  document.getElementById(('update').addEventListener("click"), updateText())
+  updateButton = document.getElementById('update')
+  
+  updateButton.addEventListener('click', updateText)
   updateText()
 
   //updateWidget()
