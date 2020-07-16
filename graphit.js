@@ -102,7 +102,9 @@ async function updateText() {
 
 
 
-  axisS.forEach((axis) => {
+  let axisS = document.getElementsByName('axis')
+  
+  for(axis in axisS) {
     if(axis.checked) {
       if(axis.value === "x") {
         await miro.board.widgets.update(widget => ({
@@ -115,8 +117,7 @@ async function updateText() {
           height: newHeight,
         }))
       }
-    }
-  })
-
+    }    
+  }
 
 }
