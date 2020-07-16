@@ -6,7 +6,7 @@ miro.onReady(() => {
   updateButton = document.getElementById('update')
   
   updateButton.addEventListener('click', updateText)
-  updateText()
+  //updateText()
 
   //updateWidget()
 })
@@ -65,17 +65,17 @@ async function updateText() {
   let newText = widgetTextElement.value
   let widget = widgets[0]
 
-  if (typeof text === 'string') {
-    if(text.includes('<p>')) {
-      text = text.replace("<p>", "")
-      text = text.replace("</p>", "")
-      text = text.trim()
+  if (typeof newText === 'string') {
+    if(newText.includes('<p>')) {
+      newText = newText.replace("<p>", "")
+      newText = newText.replace("</p>", "")
+      newText = newText.trim()
     }
 
     // numbers[0] will store current location,
     // numbers[1] will store where we want to get to
     // numbers[2] will store the max width or height
-    var numbers = text.split("/",3)
+    var numbers = newText.split("/",3)
 
     var i;
     for(i = 0; i < numbers.length; i++) {
