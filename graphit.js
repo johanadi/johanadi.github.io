@@ -36,7 +36,7 @@ async function getWidget() {
     var numbers = text.split("/",3)
 
     var i;
-    for(i = 0; i < numberes.length; i++) {
+    for(i = 0; i < numbers.length; i++) {
       numbers[i] = Number(numbers[i]);
     }
 
