@@ -12,7 +12,7 @@ async function getSize() {
 	let widgets = await miro.board.selection.get()
 	let text = ""
 
-	let axisS = document.getElementByName('axis')
+	let axisS = document.getElementsByName('axis')
 
 
 
