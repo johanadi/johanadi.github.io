@@ -12,7 +12,19 @@
             padding: 24px 0 0 24px;
         }
 
-        .miro-btn {}
+        .miro-btn {
+          display: block;
+          background-color: #4262FF;
+          border: none;
+          color: #FFF;
+          height: 50px;
+          box-sizing: border-box;
+          border-radius: 4px;
+          text-align: center;
+          font-size: 22px;
+          cursor: pointer;
+          width: 274px;
+        }
         .miro-radiobutton {}
 
         textarea {
@@ -50,12 +62,13 @@
 </label>
 
 <textarea id="widget-text"></textarea>
-<script src="graphit.js"></script>
 
 <textarea id="widget-size" readonly></textarea>
-<script src="checksize.js"></script>
 
 <button id="update" class="miro-btn miro-btn--primary miro-btn--medium">Update</button>
+
+<script src="graphit.js"></script>
+<script src="checksize.js"></script>
 
 </body>
 </html>
