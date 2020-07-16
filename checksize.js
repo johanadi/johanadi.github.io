@@ -14,8 +14,6 @@ async function getSize() {
 
 	let axisS = document.getElementsByName('axis')
 
-
-
 	axisS.forEach((axis) => {
 		if(axis.checked) {
 			if(axis.value === "x") {
