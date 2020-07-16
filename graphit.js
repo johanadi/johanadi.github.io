@@ -52,8 +52,6 @@ async function getWidget() {
 }
 
 async function updateText() {
-  getWidget()
-
   // Clicking update means 
   //  1. The text isnide of the widgetTextElement updates
   //      the text in the shape
@@ -64,7 +62,31 @@ async function updateText() {
 
   // 1.
   let widgets = await miro.board.selection.get()
-  widgets[0].text = widgetTextElement.value
+  let newText = widgetTextElement.value
+  let widget = widgets[0]
+
+  if (typeof text === 'string') {
+    if(text.includes('<p>')) {
+      text = text.replace("<p>", "")
+      text = text.replace("</p>", "")
+      text = text.trim()
+    }
+
+    // numbers[0] will store current location,
+    // numbers[1] will store where we want to get to
+    // numbers[2] will store the max width or height
+    var numbers = text.split("/",3)
+
+    var i;
+    for(i = 0; i < numbers.length; i++) {
+      numbers[i] = Number(numbers[i]);
+    }
+
+    // hide tip and show text in sidebar
+    //tipElement.style.opacity = '0'
+  }
+
+
 
   let object = widgets[0]
   // 2. the Math
@@ -77,6 +99,24 @@ async function updateText() {
     //update the information in widget
     console.log(newWidth)
   }
+
+
+
+  axisS.forEach((axis) => {
+    if(axis.checked) {
+      if(axis.value === "x") {
+        await miro.board.widgets.update(widget => ({
+          text: newText,
+          width: newWidth,
+        }))
+      } else {
+        await miro.board.widgets.update(widget => ({
+          text: newText,
+          height: newHeight,
+        }))
+      }
+    }
+  })
 
 
 }
