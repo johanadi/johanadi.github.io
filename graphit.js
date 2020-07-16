@@ -33,15 +33,20 @@ async function getWidget() {
     // numbers[0] will store current location,
     // numbers[1] will store where we want to get to
     // numbers[2] will store the max width or height
-    var numbers = Number(text.split("/",3))
+    var numbers = text.split("/",3)
+
+    var i;
+    for(i = 0; i < numberes.length; i++) {
+      numbers[i] = Number(numbers[i]);
+    }
 
     // hide tip and show text in sidebar
-    tipElement.style.opacity = '0'
+    //tipElement.style.opacity = '0'
     widgetTextElement.value = text
   } else {
 
     // show tip and clear text in sidebar
-    tipElement.style.opacity = '1'
+    //tipElement.style.opacity = '1'
     widgetTextElement.value = ''
   }
 }
@@ -70,7 +75,7 @@ async function updateText() {
     var newWidth = pctg * numbers [2]
 
     //update the information in widget
-    
+    console.log(newWidth)
   }
 
 
