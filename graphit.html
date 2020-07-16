@@ -25,7 +25,20 @@
           cursor: pointer;
           width: 274px;
         }
-        .miro-radiobutton {}
+        .miro-radiobutton {
+          border-radius: 50%;
+          &:after {
+            width: 19px;
+            height: 19px;
+            border-radius: 50%;
+            background: var(--active-inner);
+            opacity: 0;
+            transform: scale(var(--s, .7));
+          }
+          &:checked {
+            --s: .5;
+          }
+        }
 
         textarea {
             display: block;
