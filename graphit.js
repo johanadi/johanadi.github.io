@@ -98,26 +98,43 @@ async function updateText() {
 
     //update the information in widget
     console.log(newWidth)
-  }
-
-
-
-  let axisS = document.getElementsByName('axis')
   
-  for(axis in axisS) {
-    if(axis.checked) {
-      if(axis.value === "x") {
-        await miro.board.widgets.update(widget => ({
-          text: newText,
-          width: newWidth,
-        }))
-      } else {
-        await miro.board.widgets.update(widget => ({
-          text: newText,
-          height: newHeight,
-        }))
-      }
-    }    
-  }
+    let axisS = document.getElementsByName('axis')
 
+    await miro.board.widgets.deleteById(widget => widget.id)
+
+    for(axis in axisS) {
+      if(axis.checked) {
+        if(axis.value === "x") {
+          /*await miro.board.widgets.update(widget => ({
+            text: newText,
+            width: newWidth,
+          }))*/
+
+          await miro.board.widgets.create(widget => ({
+            type: 'shape',
+            text: newText,
+            x: widget.x,
+            y: widget.y,
+            width: newWidth,
+            height: widget.bounds.height,
+          }))
+        } else {
+          /*await miro.board.widgets.update(widget => ({
+            text: newText,
+            height: newHeight,
+          }))*/
+          await miro.board.widgets.create(widget => ({
+            type: 'shape',
+            text: newText,
+            x: widget.x,
+            y: widget.y,
+            width: widget.bounds.width,
+            height: newHeight,
+          }))
+        }
+      }    
+    }
+    miro.showNotification('Converted the Shape')
+  }
 }
