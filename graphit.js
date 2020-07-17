@@ -101,7 +101,7 @@ async function updateText() {
   
     let axisS = document.getElementsByName('axis')
 
-    await miro.board.widgets.deleteById(widget.id)
+    //await miro.board.widgets.deleteById(widget.id)
 
     for(axis in axisS) {
       if(axis.checked) {
