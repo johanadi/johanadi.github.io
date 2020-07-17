@@ -111,25 +111,25 @@ async function updateText() {
             width: newWidth,
           }))*/
 
-          await miro.board.widgets.update([{
+          await miro.board.widgets.update({
             id: widget.id,
             text: newText,
             width: newWidth,
-          }])
+          })
           console.log('Updated x-axis widget')
         } else {
           /*await miro.board.widgets.update(widget => ({
             text: newText,
             height: newHeight,
           }))*/
-          await miro.board.widgets.create(widget => ({
+          await miro.board.widgets.create({
             type: 'shape',
             text: newText,
             x: widget.x,
             y: widget.y,
             width: widget.bounds.width,
             height: newHeight,
-          }))
+          })
           console.log('Created y-axis widget')
         }
       }    
