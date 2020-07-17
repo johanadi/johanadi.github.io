@@ -114,9 +114,7 @@ async function updateText() {
           await miro.board.widgets.update([{
             id: widget.id,
             text: newText,
-            x: widget.x,
-            y: widget.y,
-            width: newWidth,
+            width = newWidth,
           }])
           console.log('Updated x-axis widget')
         } else {

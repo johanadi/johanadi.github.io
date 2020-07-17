@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://miro.com/app/static/styles.1.0.css"/>
     <script src="https://miro.com/app/static/sdk.1.1.js"></script>
 
     <style>
@@ -25,10 +26,17 @@
             text-align: center;
             font-weight: normal;
         }
-
+        
         .miro-radiobutton {
+            position: relative;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            vertical-align: top;
+            -ms-flex-align: start;
+            align-items: flex-start;
+            font-size: 14px;
+            line-height: 20px;
         }
-
         .rtb-sidebar-caption {
             font-size: 14px;
             font-weight: bold;
