@@ -87,8 +87,6 @@ async function updateText() {
   }
 
 
-
-  let object = widgets[0]
   // 2. the Math
   if(numbers.length < 3) {
     miro.showNotification('Make sure you have a max length field')
@@ -106,11 +104,6 @@ async function updateText() {
     for(axis in axisS) {
       if(axis.checked) {
         if(axis.value === "x") {
-          /*await miro.board.widgets.update(widget => ({
-            text: newText,
-            width: newWidth,
-          }))*/
-
           await miro.board.widgets.update({
             id: widget.id,
             text: newText,
@@ -118,18 +111,14 @@ async function updateText() {
           })
           console.log('Updated x-axis widget')
         } else {
-          /*await miro.board.widgets.update(widget => ({
-            text: newText,
-            height: newHeight,
-          }))*/
-          await miro.board.widgets.create({
+          await miro.board.widgets.create(widgets.map(widget => ({
             type: 'shape',
             text: newText,
             x: widget.x,
             y: widget.y,
             width: widget.bounds.width,
             height: newHeight,
-          })
+          })))
           console.log('Created y-axis widget')
         }
       }    
