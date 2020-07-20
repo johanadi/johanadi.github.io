@@ -30,23 +30,11 @@ async function getWidget() {
       text = text.trim()
     }
 
-    // numbers[0] will store current location,
-    // numbers[1] will store where we want to get to
-    // numbers[2] will store the max width or height
-    var numbers = text.split("/",3)
-
-    var i;
-    for(i = 0; i < numbers.length; i++) {
-      numbers[i] = Number(numbers[i]);
-    }
-
-    // hide tip and show text in sidebar
-    //tipElement.style.opacity = '0'
+    // show text in sidebar
     widgetTextElement.value = text
   } else {
 
-    // show tip and clear text in sidebar
-    //tipElement.style.opacity = '1'
+    // clear text in sidebar
     widgetTextElement.value = ''
   }
 }
@@ -82,8 +70,6 @@ async function updateText() {
       numbers[i] = Number(numbers[i]);
     }
 
-    // hide tip and show text in sidebar
-    //tipElement.style.opacity = '0'
   }
 
 
@@ -91,12 +77,19 @@ async function updateText() {
   if(numbers.length < 3) {
     miro.showNotification('Make sure you have a max length field')
   } else {
+    //Calculations of the new width and the new height
     var pctg = numbers[0] / numbers[1]
-    var newWidth = pctg * numbers [2]
+    var newWidth = pctg * numbers[2]
+    var newHeight = pctg * numbers[2]
 
-    //update the information in widget
-    console.log(newWidth)
+    //Calculations of the new x and y, since there is no anchor point
+    
+
+    //tracking the numbers in the console
+    console.log('new width' + newWidth)
+    console.log('new height' + newHeight)
   
+    //importing the radio buttons
     let axisS = document.getElementsByName('axis')
 
     //await miro.board.widgets.deleteById(widget.id)
@@ -111,14 +104,11 @@ async function updateText() {
           })
           console.log('Updated x-axis widget')
         } else {
-          await miro.board.widgets.create(widgets.map(widget => ({
-            type: 'shape',
+          await miro.board.widgets.update({
+            id: widget.id,
             text: newText,
-            x: widget.x,
-            y: widget.y,
-            width: widget.bounds.width,
             height: newHeight,
-          })))
+          })
           console.log('Created y-axis widget')
         }
       }    
