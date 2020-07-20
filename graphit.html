@@ -5,6 +5,24 @@
     <script src="https://miro.com/app/static/sdk.1.1.js"></script>
 
     <style>
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    color: #050038;
+    background-color: #fff;
+    font: 14px OpenSans, Arial, Helvetica, sans-serif;
+}
+      .miro-radiobutton {
+    position: relative;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    vertical-align: top;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 20px;
+}
         .miro-radiobutton span:active:before {
     border-color: #4262ff;
 }
@@ -69,7 +87,6 @@
     line-height: 1;
     cursor: pointer;
 }
-user agent stylesheet
 button {
     appearance: button;
     -webkit-writing-mode: horizontal-tb !important;
@@ -95,7 +112,22 @@ button {
     border-image: initial;
     border-radius: 2px;
 }
-
+.miro-h1 {
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 600;
+}
+.miro-p-large {
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: normal;
+}
         .rtb-sidebar-caption {
             font-size: 14px;
             font-weight: bold;
@@ -135,8 +167,8 @@ button {
 </head>
 
 <body>
-<div class="rtb-sidebar-caption">Graph your data</div>
-<div class="tip" id="tip">
+<div class="miro-h1">Graph your data</div>
+<div class="miro-p-large" id="tip">
     Select bar to inspect and/or edit the data. [Current position, Goal position, Max size of the Widget]
 </div>
 

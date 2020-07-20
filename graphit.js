@@ -40,13 +40,6 @@ async function getWidget() {
 }
 
 async function updateText() {
-  // Clicking update means 
-  //  1. The text isnide of the widgetTextElement updates
-  //      the text in the shape
-  //  2. number[0] will be calculated with number[1]
-  //      and make percentage of new height/width based
-  //      off of number[2] -> We mut assure we consider
-  //      x and y-axis, and which is checked.
 
   // 1.
   let widgets = await miro.board.selection.get()
@@ -83,7 +76,7 @@ async function updateText() {
     var newHeight = pctg * numbers[2]
 
     //Calculations of the new x and y, since there is no anchor point
-    
+
 
     //tracking the numbers in the console
     console.log('new width' + newWidth)
