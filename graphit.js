@@ -77,7 +77,7 @@ async function updateText() {
     // numbers[2] will store the max width or height
     var numbers = newText.split("/",3)
 
-    var i;
+    let i;
     for(i = 0; i < numbers.length; i++) {
       numbers[i] = Number(numbers[i]);
     }
@@ -100,10 +100,10 @@ async function updateText() {
     let axisS = document.getElementsByName('axis')
 
     //await miro.board.widgets.deleteById(widget.id)
-
+    let i;
     for(i = 0; i < axisS.length; i++) {
       if(axisS[i].checked) {
-        if(axis[i].value === "x") {
+        if(axisS[i].value === "x") {
           await miro.board.widgets.update({
             id: widget.id,
             text: newText,
