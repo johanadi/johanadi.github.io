@@ -101,9 +101,9 @@ async function updateText() {
 
     //await miro.board.widgets.deleteById(widget.id)
 
-    for(axis in axisS) {
-      if(axis.checked) {
-        if(axis.value === "x") {
+    for(i = 0; i < axisS.length; i++) {
+      if(axisS[i].checked) {
+        if(axis[i].value === "x") {
           await miro.board.widgets.update({
             id: widget.id,
             text: newText,
