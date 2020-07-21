@@ -15,6 +15,9 @@ miro.onReady(() => {
 const tipElement = document.getElementById('tip')
 const widgetTextElement = document.getElementById('widget-text')
 
+var pctg2 = 1;
+
+
 async function getWidget() {
   // Get selected widgets
   let widgets = await miro.board.selection.get()
@@ -114,7 +117,6 @@ async function updateText() {
   }
 }
 
-var pctg2 = 1;
 function tempData() {
   var oldText = widgetTextElement.value
 
@@ -141,6 +143,5 @@ function tempData() {
     var oldHeight = pctg2 * numbers[2]
 
   }
-
 
 }
