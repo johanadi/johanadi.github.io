@@ -3,12 +3,12 @@ miro.onReady(() => {
   miro.addListener(miro.enums.event.SELECTION_UPDATED, getWidget)
   getWidget()
 
-  updateButton = document.getElementById('update')
-  
+  updateButton = document.getElementById('update') 
   updateButton.addEventListener('click', updateText)
-  //updateText()
-
-  //updateWidget()
+  
+  // Storing temporary data from what used to exist in the txt box
+  textBox = document.getElementById('widget-text')
+  textBox.Attributes.Add('onClick', )
 })
 
 // Get html elements for tip and text container
@@ -56,8 +56,9 @@ async function updateText() {
     // numbers[0] will store current location,
     // numbers[1] will store where we want to get to
     // numbers[2] will store the max width or height
-    var numbers = newText.split("/",3)
 
+    var numbers = newText.split("/",3)
+    
     let i;
     for(i = 0; i < numbers.length; i++) {
       numbers[i] = Number(numbers[i]);
@@ -76,7 +77,8 @@ async function updateText() {
     var newHeight = pctg * numbers[2]
 
     //Calculations of the new x and y, since there is no anchor point
-
+    var newX = (widget.x * pctg) / pctg2
+    var newY = (widget.y * pctg) / pctg2
 
     //tracking the numbers in the console
     console.log('new width' + newWidth)
@@ -94,7 +96,7 @@ async function updateText() {
             id: widget.id,
             text: newText,
             width: newWidth,
-            x: widget.x,
+            x: newX,
           })
           console.log('Updated x-axis widget')
         } else {
@@ -102,7 +104,7 @@ async function updateText() {
             id: widget.id,
             text: newText,
             height: newHeight,
-            y: widget.y,
+            y: newY,
           })
           console.log('Created y-axis widget')
         }
@@ -110,4 +112,34 @@ async function updateText() {
     }
     miro.showNotification('Converted the Shape')
   }
+}
+
+function tempData() {
+  var oldText = widgetTextElement.value
+
+  if (typeof oldText === 'string') {
+    if(oldText.includes('<p>')) {
+      oldText = oldText.replace("<p>", "")
+      oldText = oldText.replace("</p>", "")
+      oldText = oldText.trim()
+    }
+
+    // numbers[0] will store current location,
+    // numbers[1] will store where we want to get to
+    // numbers[2] will store the max width or height
+
+    var numbers = oldText.split("/",3)
+    
+    let i;
+    for(i = 0; i < numbers.length; i++) {
+      numbers[i] = Number(numbers[i]);
+    }
+
+    var pctg2 = numbers[0] / numbers[1]
+    var oldWidth = pctg * numbers[2]
+    var oldHeight = pctg * numbers[2]
+
+  }
+
+
 }
