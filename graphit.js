@@ -8,7 +8,7 @@ miro.onReady(() => {
   
   // Storing temporary data from what used to exist in the txt box
   textBox = document.getElementById('widget-text')
-  textBox.Attributes.Add('onClick', )
+  textBox.Attributes.Add('onClick', tempData)
 })
 
 // Get html elements for tip and text container
