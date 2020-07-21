@@ -114,6 +114,7 @@ async function updateText() {
   }
 }
 
+var pctg2 = 1;
 function tempData() {
   var oldText = widgetTextElement.value
 
@@ -136,8 +137,8 @@ function tempData() {
     }
 
     var pctg2 = numbers[0] / numbers[1]
-    var oldWidth = pctg * numbers[2]
-    var oldHeight = pctg * numbers[2]
+    var oldWidth = pctg2 * numbers[2]
+    var oldHeight = pctg2 * numbers[2]
 
   }
 
