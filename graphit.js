@@ -44,7 +44,8 @@ async function getWidget() {
 
 async function updateText() {
 
-  // 1.
+  // 1. Intaking the value from the text field and
+  //    transforming it into an array of numbers
   let widgets = await miro.board.selection.get()
   let newText = widgetTextElement.value
   let widget = widgets[0]
@@ -59,7 +60,6 @@ async function updateText() {
     // numbers[0] will store current location,
     // numbers[1] will store where we want to get to
     // numbers[2] will store the max width or height
-
     var numbers = newText.split("/",3)
     
     let i;
@@ -70,7 +70,9 @@ async function updateText() {
   }
 
 
-  // 2. the Math
+  // 2. the Math and application; where it calculates the new
+  //    Width, height, X and Y and applies it according to the
+  //    Field in which we are trying to edit
   if(numbers.length < 3) {
     miro.showNotification('Make sure you have a max length field')
   } else {
@@ -130,7 +132,6 @@ function tempData() {
     // numbers[0] will store current location,
     // numbers[1] will store where we want to get to
     // numbers[2] will store the max width or height
-
     var numbers = oldText.split("/",3)
     
     let i;
