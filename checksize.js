@@ -17,11 +17,9 @@ async function getSize() {
 	axisS.forEach((axis) => {
 		if(axis.checked) {
 			if(axis.value === "x") {
-				//text = widgets[0].bounds.width
-				text = widgets[0].x
+				text = widgets[0].bounds.width
 			} else {
-				//text = widgets[0].bounds.height
-				text = widgets[0].y
+				text = widgets[0].bounds.height
 			}
 		}
 	})

@@ -80,8 +80,8 @@ async function updateText() {
     var newHeight = pctg * numbers[2]
 
     //Calculations of the new x and y, since there is no anchor point
-    var newX = (widget.x * (pctg * 100) ) / (pctg2 * 100)
-    var newY = (widget.y * (pctg * 100) ) / (pctg2 * 100)
+    var newX = (widget.x + ( (newWidth - widget.width) / 2) )
+    var newY = (widget.y + ( (newHeight - widget.height) / 2) ) 
 
     //tracking the numbers in the console
     console.log('new width' + newWidth)
@@ -99,7 +99,7 @@ async function updateText() {
             id: widget.id,
             text: newText,
             width: newWidth,
-            //x: newX,
+            x: newX,
           })
           console.log('Updated x-axis widget')
         } else {
@@ -107,7 +107,7 @@ async function updateText() {
             id: widget.id,
             text: newText,
             height: newHeight,
-            //y: newY,
+            y: newY,
           })
           console.log('Created y-axis widget')
         }
