@@ -99,7 +99,7 @@ async function updateText() {
             id: widget.id,
             text: newText,
             width: newWidth,
-            x: newX,
+            //x: newX,
           })
           console.log('Updated x-axis widget')
         } else {
@@ -107,7 +107,7 @@ async function updateText() {
             id: widget.id,
             text: newText,
             height: newHeight,
-            y: newY,
+            //y: newY,
           })
           console.log('Created y-axis widget')
         }
