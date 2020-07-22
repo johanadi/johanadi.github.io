@@ -18,7 +18,7 @@ This app was made so that a shape can work as a progress bar. With the text stor
 2. If this is your first time wanting to create this shape into a progress bar, **set it to it's 100% position (width & height), and click on the shape to refresh the selection**. Look at the SECOND box of text (see highlighted numbers in the image below). This is your **Maximum width/height for your shape**. _Note: this will display your CURRENT width, which is why you want to set your shape to your ideal 100% status._
 ![alt-text](https://github.com/johanadi/johanadi.github.io/blob/master/images/maximum_width_displayed.png "Image showcasing the location of the maximum width in the panel")
 3. Set your THIRD number in the text field to the maximum width. Example: `10/10/500` - `500` being the maximum width. **Don't change this number from here on out, unless you are resetting this shape!**
-![alt-text](https://github.com/johanadi/johanadi.github.io/blob/master/images/step2.gif "GIF of Step 3 explanation")
+![alt-text](https://github.com/johanadi/johanadi.github.io/blob/master/images/step3.gif "GIF of Step 3 explanation")
 4. The first and the second number represent your percentage/progress. If you are tracking percentage, you may do `1/100/500` for 1%, since this is 1 out of 100. If you are tracking other tasks, such as "Dogs walked this week", you can enter `4/25/500`- which would be 16%, as 4 out of 25 is that precisely.
 
 ## How to Install:
