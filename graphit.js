@@ -80,8 +80,8 @@ async function updateText() {
     var newHeight = pctg * numbers[2]
 
     //Calculations of the new x and y, since there is no anchor point
-    var newX = (widget.x * pctg) / pctg2
-    var newY = (widget.y * pctg) / pctg2
+    var newX = (widget.x * (pctg * 100) ) / (pctg2 * 100)
+    var newY = (widget.y * (pctg * 100) ) / (pctg2 * 100)
 
     //tracking the numbers in the console
     console.log('new width' + newWidth)
@@ -138,7 +138,7 @@ function tempData() {
       numbers[i] = Number(numbers[i]);
     }
 
-    var pctg2 = numbers[0] / numbers[1]
+    pctg2 = numbers[0] / numbers[1]
     var oldWidth = pctg2 * numbers[2]
     var oldHeight = pctg2 * numbers[2]
 
