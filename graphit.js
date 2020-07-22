@@ -5,17 +5,11 @@ miro.onReady(() => {
 
   updateButton = document.getElementById('update') 
   updateButton.addEventListener('click', updateText)
-  
-  // Storing temporary data from what used to exist in the txt box
-  textBox = document.getElementById('widget-text')
-  textBox.addEventListener('click', tempData)
 })
 
 // Get html elements for tip and text container
 const tipElement = document.getElementById('tip')
 const widgetTextElement = document.getElementById('widget-text')
-
-var pctg2 = 1;
 
 
 async function getWidget() {
@@ -78,6 +72,9 @@ async function updateText() {
   } else {
     //Calculations of the new width and the new height
     var pctg = numbers[0] / numbers[1]
+    if(pctg > 100)
+      pctg = 100;
+
     var newWidth = pctg * numbers[2]
     var newHeight = pctg * numbers[2]
 
@@ -88,6 +85,7 @@ async function updateText() {
     } if (newHeight < 8) {
       newHeight = 9;
     }
+
 
     //Calculations of the new x and y, since there is no anchor point
     var newX = (widget.x + ( (newWidth - widget.width) / 2) )
@@ -125,32 +123,4 @@ async function updateText() {
     }
     miro.showNotification('Converted the Shape')
   }
-}
-
-function tempData() {
-  var oldText = widgetTextElement.value
-
-  if (typeof oldText === 'string') {
-    if(oldText.includes('<p>')) {
-      oldText = oldText.replace("<p>", "")
-      oldText = oldText.replace("</p>", "")
-      oldText = oldText.trim()
-    }
-
-    // numbers[0] will store current location,
-    // numbers[1] will store where we want to get to
-    // numbers[2] will store the max width or height
-    var numbers = oldText.split("/",3)
-    
-    let i;
-    for(i = 0; i < numbers.length; i++) {
-      numbers[i] = Number(numbers[i]);
-    }
-
-    pctg2 = numbers[0] / numbers[1]
-    var oldWidth = pctg2 * numbers[2]
-    var oldHeight = pctg2 * numbers[2]
-
-  }
-
 }
