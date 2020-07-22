@@ -81,6 +81,14 @@ async function updateText() {
     var newWidth = pctg * numbers[2]
     var newHeight = pctg * numbers[2]
 
+    //Due to miro board having a limit on the smallest size of a shape,
+    // we need to limit the smallest size to 8 width (smallest available width)
+    if(newWidth < 8) {
+      newWidth = 8;
+    } if (newHeight < 8) {
+      newHeight = 9;
+    }
+
     //Calculations of the new x and y, since there is no anchor point
     var newX = (widget.x + ( (newWidth - widget.width) / 2) )
     var newY = (widget.y + ( (newHeight - widget.height) / 2) ) 
